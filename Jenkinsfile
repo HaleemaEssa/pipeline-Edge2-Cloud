@@ -12,7 +12,7 @@ stage('Git-clon & Build') {
           steps {
             sh 'echo "edge2"'
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge2.git'
-            //sh 'docker stop  haleema/docker-edge1; docker rm  haleema/docker-edge1'
+            sh 'docker stop  haleema/docker-edge1; docker rm  haleema/docker-edge1'
             sh 'docker build -t haleema/docker-edge2:latest .'
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge2'
           }
@@ -35,7 +35,7 @@ stage('Login to Dockerhub') {
           agent any
           steps {
             sh 'echo "edge1-run" '
-            sh 'docker stop  haleema/docker-edge1; docker rm  haleema/docker-edge1'
+            //sh 'docker stop  haleema/docker-edge1; docker rm  haleema/docker-edge1'
             sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
           }
         }
