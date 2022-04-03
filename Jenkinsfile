@@ -16,7 +16,7 @@ stage('Git-clon & Build') {
             //sh 'docker rmi -f haleema/docker-edge1'
             sh 'sleep 10'
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge2.git'
-            sh 'docker build -t haleema/docker-edge2:latest .'
+            //sh 'docker build -t haleema/docker-edge2:latest .'
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge2'
           }
     }
