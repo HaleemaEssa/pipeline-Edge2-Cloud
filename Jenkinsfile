@@ -12,9 +12,11 @@ stage('Git-clon & Build') {
           steps {
             sh 'echo "edge2"'
             //git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge1.git'
-            sh 'docker stop -name haleema/docker-edge1' //a56987f86712; docker rm -f a56987f86712'
+            //sh 'docker stop -name haleema/docker-edge1' //a56987f86712; docker rm -f a56987f86712'
             //sh 'docker rmi -f haleema/docker-edge1'
-            sh 'sleep 10'
+            //sh 'sleep 10'
+            sh 'imagename='haleema/docker-edge1:latest''
+            sh 'docker stop $(docker ps | awk -v image=$imagename '$2 == image {print $1}')'
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge2.git'
             sh 'docker build -t haleema/docker-edge2:latest .'
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge2'
