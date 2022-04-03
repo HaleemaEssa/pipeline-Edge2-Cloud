@@ -11,9 +11,9 @@ stage('Git-clon & Build') {
           agent any
           steps {
             sh 'echo "edge2"'
-            git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge1.git'
+            //git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge1.git'
             sh 'docker stop  haleema/docker-edge1; docker rm -f haleema/docker-edge1'
-            sleep 10
+            sh 'sleep 10'
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge2.git'
             sh 'docker build -t haleema/docker-edge2:latest .'
             //sh 'docker run -v "${PWD}:/data" -t haleema/docker-edge2'
