@@ -12,7 +12,7 @@ stage('Git-clon & Build') {
           steps {
             sh 'echo "edge2"'
             //git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge1.git'
-            //sh 'docker stop  a56987f86712; docker rm -f a56987f86712'
+            sh 'docker stop -name haleema/docker-edge1' //a56987f86712; docker rm -f a56987f86712'
             //sh 'docker rmi -f haleema/docker-edge1'
             sh 'sleep 10'
             git branch: 'main', url: 'https://github.com/HaleemaEssa/jenkins-edge2.git'
